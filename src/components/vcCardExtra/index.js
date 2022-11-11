@@ -1,0 +1,1 @@
+export { default as vcCardExtra } from './src/index.vue'

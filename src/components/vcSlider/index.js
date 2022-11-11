@@ -1,0 +1,1 @@
+export { default as vcSlider } from './src/index.vue'

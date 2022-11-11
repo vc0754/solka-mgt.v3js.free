@@ -1,0 +1,26 @@
+// 区号
+export const countryCodes = [
+  { code: '+86', area: '中国' },
+  { code: '+852', area: '中国香港' },
+  { code: '+853', area: '中国澳门' },
+  { code: '+886', area: '中国台湾' },
+  { code: '+1', area: '美国' },
+  { code: '+81', area: '日本' },
+  { code: '+82', area: '韩国' },
+  { code: '+60', area: '马来西亚' },
+  { code: '+65', area: '新加坡' },
+  { code: '+84', area: '越南' },
+  { code: '+61', area: '澳大利亚' },
+  // { code: '+1', area: '加拿大' },
+  { code: '+44', area: '英国' },
+  { code: '+33', area: '法国' },
+  { code: '+7', area: '俄罗斯' },
+  { code: '+49', area: '德国' },
+  { code: '+66', area: '泰国' },
+  { code: '+91', area: '印度' },
+  { code: '+63', area: '菲律宾' },
+  { code: '+55', area: '巴西' },
+  { code: '+62', area: '印度尼西亚' },
+  { code: '+39', area: '意大利' },
+  { code: '+90', area: '土耳其' }
+]

@@ -1,0 +1,503 @@
+/******************************
+ * 后台框架
+ ******************************/
+#app {
+  @apply h-full min-h-full;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2c3e50;
+  background-color: #f2f6fc;
+  
+  /* 标志 */
+  .brand {
+    @apply relative p-0 m-0;
+
+    a {
+      @apply block whitespace-nowrap overflow-hidden text-ellipsis no-underline;
+    }
+  
+    .logo {
+      @apply inline-block align-middle overflow-hidden -indent-96;
+      background: url('@/assets/logo_2x.png') no-repeat left center / cover;
+    }
+
+    span {
+      @apply tracking-tighter uppercase relative;
+    }
+  }
+  
+  /* 侧栏 */
+  aside.sidebar {
+    .nav-header {
+      @apply flex-shrink-0 overflow-hidden;
+
+      background-color: rgb(0, 32, 61);
+      line-height: 60px;
+      height: 60px;
+      padding: 0 24px;
+      
+      a {
+        @apply text-white;
+      }
+
+      .brand {
+        .logo {
+          background-image: url('@/assets/logo-white_2x.png');
+          width: 72px; height: 20px;
+        }
+        span {
+          font: italic bolder 1.65em 'Lucida Sans';
+          top: 6px;
+        }
+        &::after {
+          content: 'Mgt.Free';
+          background: #fff;
+          color: rgb(0, 32, 61);
+          font: normal bolder 0.5em 'Lucida Sans';
+          display: block;
+          padding: 1px 5px;
+          position: absolute; top: 13px; left: 75px;
+          border-radius: 5px 0;
+          transform: skew(-10deg) scale(0.9);
+        }
+      }
+    }
+
+    .nav-menu {
+      @apply overflow-y-auto;
+      padding-top: 15px;
+      
+      a {
+        transition: color 0.2s ease;
+      }
+
+      .icon {
+        font-size: 18px;
+      }
+    
+      &::-webkit-scrollbar { width: 6px; height: 6px;}
+      &::-webkit-scrollbar-thumb {
+        @apply rounded;
+        background: #56606f;
+      }
+      &::-webkit-scrollbar-track {
+        background-color: #282d38;
+      }
+    }
+    
+
+    /* 左侧栏 */
+    &.primary-aside {
+      position: fixed; top: 0; bottom: 0; z-index: 1000;
+      
+      .ant-layout-sider-children {
+        @apply flex flex-col;
+      }
+    }
+
+    .ant-menu {
+      &.ant-menu-inline-collapsed {
+        & > .ant-menu-item,
+        & > .ant-menu-item-group > .ant-menu-item-group-list > .ant-menu-item,
+        & > .ant-menu-item-group > .ant-menu-item-group-list > .ant-menu-submenu > .ant-menu-submenu-title,
+        & > .ant-menu-submenu > .ant-menu-submenu-title {
+          padding: 0 24px;
+        }
+      }
+    }
+
+    /* 关闭状态 */
+    &.ant-layout-sider-collapsed + section.vc-container {
+      .wrapper {
+        padding-left: 70px;
+      }
+    }
+  }
+
+  /* 页眉 */
+  header.header {
+    @apply bg-white w-full fixed top-0 left-0;
+    
+    line-height: 60px;
+    height: 60px;
+    padding: 0 20px 0 0;
+    border-bottom: solid 1px rgba(224, 224, 224, 0.7);
+    z-index: 800;
+
+    transition: all cubic-bezier(0.4, 0, 0.2, 1) 240ms;
+    
+    .header-inner {
+      @apply relative;
+
+      line-height: 60px;
+      height: 60px;
+    }
+
+    .header-middle {
+      @apply relative;
+      
+      top: 50%;
+      transform: translate3d(0, -50%, 0);
+    }
+    
+    /* BRAND */
+    .brand {
+      @apply text-left relative float-left;
+
+      width: 250px;
+      padding: 0 0 0 94px;
+      
+      a {
+        color: #212121;
+      }
+      .logo {
+        width: 72px; height: 20px;
+      }
+      span {
+        font: italic bolder 1.65em 'Lucida Sans';
+        top: 4px;
+      }
+      &::after {
+        content: 'Mgt.Free';
+        background: #212121;
+        color: #fff;
+        font: normal bolder 0.5em 'Lucida Sans';
+        display: block;
+        padding: 1px 5px;
+        position: absolute; top: 13px; left: 169px;
+        border-radius: 5px 0;
+        transform: skew(-10deg) scale(0.9);
+      }
+    }
+
+    /* QUICK MENU */
+    ul.quick-menu {
+      @apply float-left m-0;
+
+      line-height: 26px;
+      height: 26px;
+      padding: 0 22px;
+    
+      & > li {
+        @apply float-left block;
+
+        height: 26px;
+        margin: 0 4px;
+  
+        & > a {
+          @apply text-center block;
+          
+          color: #4b4b4b;
+          line-height: 30px;
+          width: 26px;
+          height: 26px;
+        }
+      }
+
+      &::after {
+        content: ''; display: block;
+        width: 1px; height: 20px;
+        background-color: rgba(0, 0, 0, 0.15);
+        position: absolute;
+        top: 50%; right: 0;
+        transform: translate3d(0, -50%, 0);
+      }
+    }
+
+    .btn-icon-link {
+      @apply text-center;
+
+      color: #4b4b4b;
+      line-height: 30px;
+      width: 26px; height: 26px;
+
+      .icon {
+        font-size: 18px;
+      }
+    }
+  }
+  
+  /* 页脚 */
+  footer.footer {
+    @apply relative px-0 py-5 mx-2 md:mx-6;
+
+    background-color: transparent;
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.65);
+    transition: left 0.2s ease 0s;
+    
+    &::before {
+      display: block;
+      content: '';
+      border-top: 1px solid rgba(98, 98, 98, 0.17);
+      position: absolute; top: 0; left: 0; right: 0;
+    }
+    
+    .brand {
+      vertical-align: text-bottom;
+      .logo {
+        background-image: url('@/assets/logo_2x.png');
+        width: 36px; height: 9px;
+        opacity: 0.8;
+        top: -1px;
+      }
+      span {
+        font: italic bolder 1em 'Lucida Sans';
+        margin-left: 0.25em;
+      }
+    }
+
+    &::after {
+      display: table;
+      content: ''; clear: both;
+    }
+  }
+  
+  /* 内容框架 */
+  main.wrapper {
+    padding-top: 60px;
+    padding-left: 250px;
+    transition: all cubic-bezier(0.4, 0, 0.2, 1) 240ms;
+
+    display: flex;
+    flex-direction: column;
+
+    .content {
+      @apply flex-grow relative;
+    }
+  }
+}
+
+
+
+/******************************
+ * AntDesign Overwrite
+ ******************************/
+a.ant-btn {
+  padding-bottom: 0 !important;
+}
+.ant-card {
+  .card-actions {
+    @apply p-0 m-0;
+    font-size: 12px;
+    height: 22px;
+
+    li {
+      @apply block float-left;
+      height: 22px;
+      margin: 0 2px;
+
+      .btn-icon-link {
+        color: rgba(0, 0, 0, 0.35);
+        width: 22px; height: 22px;
+        line-height: 23px;
+      }
+    }
+
+    &::after {
+      content: '';
+      display: block; clear: both;
+    }
+  }
+
+  &.transparent {
+    @apply bg-transparent border-transparent;
+
+    .ant-card-head {
+      @apply border-transparent;
+    }
+    .ant-card-body {
+      @apply pt-0;
+    }
+    .ant-card-actions {
+      @apply bg-transparent border-transparent;
+    }
+  }
+  
+  &.ant-card-hoverable {
+    cursor: default;
+  }
+
+  .ant-card-body {
+    @apply overflow-y-auto;
+
+    &::-webkit-scrollbar { width: 6px; height: 6px;}
+    &::-webkit-scrollbar-thumb {
+      @apply rounded;
+      background: rgba(0, 0, 0, 0.2);
+    }
+    &::-webkit-scrollbar-track {
+      @apply bg-transparent;
+    }
+  }
+
+  /* 折叠 card body */
+  &.collapsed {
+    .ant-card-body {
+      display: none;
+    }
+  }
+
+  /* draggable */
+  &.sortable-chosen {
+    &::after {
+      content: ''; display: block;
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: dashed 2px #888;
+    }
+    & > * {
+      opacity: 0.25;
+    }
+  }
+
+  &.rounded-none {
+    border-radius: 0;
+  }
+}
+
+.ant-card.mb-3 { margin-bottom: 0.75rem;}
+.ant-card.mb-4 { margin-bottom: 1rem;}
+.ant-card.mb-5 { margin-bottom: 1.25rem;}
+.ant-card.mb-6 { margin-bottom: 1.5rem;}
+.ant-avatar.block { display: block;}
+.ant-dropdown.fixed { position: fixed;}
+
+.ant-divider.my-2 { margin-top: 0.5rem; margin-bottom: 0.5rem;}
+.ant-divider.my-3 { margin-top: 0.75rem; margin-bottom: 0.75rem;}
+
+
+.ant-btn {
+  height: auto !important;
+  min-height: 32px;
+  
+  /* 动画按钮 */
+  &.btn-animated {
+    overflow: hidden;
+
+    span {
+      display: block;
+      margin: 0 !important;
+      transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+
+      &.icon {
+        width: 100%;
+        position: absolute;
+      }
+    }
+
+    &.from-left {
+      span {
+        &.icon {
+          left: -100%;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+    }
+    &.from-right {
+      span {
+        &.icon {
+          right: -100%;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+    }
+    &.from-top {
+      span {
+        &.icon {
+          left: 0;
+          top: -100%;
+        }
+      }
+    }
+    &.from-bottom {
+      span {
+        &.icon {
+          left: 0;
+          top: 100%;
+        }
+      }
+    }
+
+    &:hover {
+      &.from-left {
+        span {
+          &.icon { left: 0;}
+          &:not(.icon) {
+            transform: translateX(200%);
+          }
+        }
+      }
+      &.from-right {
+        span {
+          &.icon { right: 0;}
+          &:not(.icon) {
+            transform: translateX(-200%);
+          }
+        }
+      }
+      &.from-top {
+        span {
+          &.icon {
+            top: 50%;
+            transform: translate3d(0, -42%, 0);
+          }
+
+          &:not(.icon) {
+            transform: translateY(300%);
+          }
+        }
+      }
+      &.from-bottom {
+        span {
+          &.icon {
+            top: 50%;
+            transform: translate3d(0, -42%, 0);
+          }
+
+          &:not(.icon) {
+            transform: translateY(-300%);
+          }
+        }
+      }
+    }
+  }
+}
+
+.ant-btn-sm {
+  min-height: 24px;
+}
+
+/* 按钮组 */
+.btn-group {
+  display: flex;
+  .ant-btn {
+    transition: none;
+
+    &:first-child {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    &:last-child {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    &:not(:first-child) {
+      margin-left: -1px;
+    }
+
+    &:not(:first-child, :last-child) {
+      border-radius: 0;
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+      z-index: 1;
+    }
+  }
+}

@@ -1,0 +1,1 @@
+export { default as vcQuickmenuNotification } from './src/index.vue'

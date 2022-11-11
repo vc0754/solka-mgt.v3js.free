@@ -1,0 +1,1 @@
+export { default as vcAvatarDropdown } from './src/index.vue'
