@@ -29,7 +29,7 @@ SOLKA (索尔卡) 是由 Vincent 开发创作的，它是基于 <code>Vite</code
 
 &nbsp;
 ## 在线预览
-[在线预览](http://182.44.14.91:88/)
+[在线预览](https://www.yoyo.zone/free/)
 
 &nbsp;
 ## 开发环境配置建议
